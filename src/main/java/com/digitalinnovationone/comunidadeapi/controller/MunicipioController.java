@@ -16,45 +16,45 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.digitalinnovationone.comunidadeapi.dto.request.MembroDTO;
+import com.digitalinnovationone.comunidadeapi.dto.request.MunicipioDTO;
 import com.digitalinnovationone.comunidadeapi.dto.response.MessageResponseDTO;
-import com.digitalinnovationone.comunidadeapi.exception.MembroNotFoundException;
-import com.digitalinnovationone.comunidadeapi.service.MembroService;
+import com.digitalinnovationone.comunidadeapi.exception.MunicipioNotFoundException;
+import com.digitalinnovationone.comunidadeapi.service.MunicipioService;
 
 import lombok.AllArgsConstructor;
 
 @RestController
-@RequestMapping("/api/membro")
+@RequestMapping("/api/municipio")
 @AllArgsConstructor(onConstructor = @__(@Autowired))
-public class MembroController {
+public class MunicipioController {
 
-	private MembroService membroService;
+	private MunicipioService municipioService;
 	
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public MessageResponseDTO criarMembro(@RequestBody @Valid MembroDTO membroDTO) {
-		return membroService.criarMembro(membroDTO);
+	public MessageResponseDTO criarMunicipio(@RequestBody @Valid MunicipioDTO municipioDTO) {
+		return municipioService.criarMunicipio(municipioDTO);
 	}
 	
 	@PutMapping
-	public MessageResponseDTO atualizarMembro(@PathVariable Long id, @RequestBody @Valid MembroDTO membroDTO) throws MembroNotFoundException {
-		return membroService.atualizarMembro(id, membroDTO);
+	public MessageResponseDTO atualizarMunicipio(@PathVariable Long id, @RequestBody @Valid MunicipioDTO municipioDTO) throws MunicipioNotFoundException {
+		return municipioService.atualizarMunicipio(id, municipioDTO);
 	}
 	
 	@GetMapping
-	public List<MembroDTO> listar() {
-		return membroService.findAll();
+	public List<MunicipioDTO> listar() {
+		return municipioService.findAll();
 	}
 	
 	@GetMapping("/{id}")
-	public MembroDTO findById(@PathVariable Long id) throws MembroNotFoundException{
-		return membroService.findById(id);
+	public MunicipioDTO findById(@PathVariable Long id) throws MunicipioNotFoundException{
+		return municipioService.findById(id);
 	}
 	
-	@DeleteMapping("/{membroId}")
+	@DeleteMapping("/{id}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	public void deleteById(@PathVariable Long membroId) throws MembroNotFoundException{
-		membroService.deleteById(membroId);
+	public void deleteById(@PathVariable Long id) throws MunicipioNotFoundException{
+		municipioService.deleteById(id);
 	}
 	
 }

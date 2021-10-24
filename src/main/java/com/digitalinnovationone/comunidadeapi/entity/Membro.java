@@ -1,6 +1,5 @@
 package com.digitalinnovationone.comunidadeapi.entity;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -37,9 +36,6 @@ public class Membro {
 	
 	@Column(nullable = false, unique = true)
 	private String cpf;
-	
-	@Column(nullable = false)
-	private LocalDate dataNascimento;
 	
 	@Embedded
 	private Endereco endereco;

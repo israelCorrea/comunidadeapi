@@ -33,8 +33,6 @@ public class MembroDTO {
 	@CPF
 	private String cpf;
 	
-	private String dataNascimento;
-	
 	private EnderecoDTO endereco;
 	
 	@NotEmpty

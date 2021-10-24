@@ -36,9 +36,11 @@ public class EnderecoDTO {
 	@Size(max = 100)
 	private String bairro;
 	
-	private UnidadeFederativaDTO unidadeFederativa;
+	@NotEmpty
+	private UnidadeFederativaIdDTO unidadeFederativa;
 	
-	private MunicipioDTO municipio;
+	@NotEmpty
+	private MunicipioIdDTO municipio;
 	
 	@NotEmpty
 	@Size(max = 8)
