@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import com.digitalinnovationone.comunidadeapi.dto.request.UnidadeFederativaDTO;
 import com.digitalinnovationone.comunidadeapi.dto.response.MessageResponseDTO;
+import com.digitalinnovationone.comunidadeapi.entity.UnidadeFederativa;
 import com.digitalinnovationone.comunidadeapi.exception.UnidadeFederativaNotFoundException;
 
 public interface UnidadeFederativaService {
@@ -19,5 +20,9 @@ public interface UnidadeFederativaService {
 	public UnidadeFederativaDTO findById(Long id) throws UnidadeFederativaNotFoundException;
 
 	public void deleteById(Long id) throws UnidadeFederativaNotFoundException;
+	
+	public UnidadeFederativa toEntity(UnidadeFederativaDTO unidadeFederativaDTO);
+	
+	public UnidadeFederativaDTO toDTO(UnidadeFederativa unidadeFederativa);
 	
 }

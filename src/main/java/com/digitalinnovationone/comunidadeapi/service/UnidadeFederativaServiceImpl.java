@@ -56,16 +56,16 @@ public class UnidadeFederativaServiceImpl implements UnidadeFederativaService {
 		verifyIfExists(id);
 		unidadeFederativaRepository.deleteById(id);
 	}
-
-	private UnidadeFederativa verifyIfExists(Long id) throws UnidadeFederativaNotFoundException {
-		return unidadeFederativaRepository.findById(id).orElseThrow(() -> new UnidadeFederativaNotFoundException(id));
-	}
 	
-	private UnidadeFederativa toEntity(UnidadeFederativaDTO unidadeFederativaDTO) {
+	public UnidadeFederativa toEntity(UnidadeFederativaDTO unidadeFederativaDTO) {
 		return modelMapper.map(unidadeFederativaDTO, UnidadeFederativa.class);
 	}
 	
-	private UnidadeFederativaDTO toDTO(UnidadeFederativa unidadeFederativa) {
+	public UnidadeFederativaDTO toDTO(UnidadeFederativa unidadeFederativa) {
 		return modelMapper.map(unidadeFederativa, UnidadeFederativaDTO.class);
+	}
+	
+	private UnidadeFederativa verifyIfExists(Long id) throws UnidadeFederativaNotFoundException {
+		return unidadeFederativaRepository.findById(id).orElseThrow(() -> new UnidadeFederativaNotFoundException(id));
 	}
 }
